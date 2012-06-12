@@ -14,6 +14,8 @@
 #   limitations under the License.
 #
 
+# Originally borrowed from @Openstack/Nova
+
 import logging
 import traceback
 import itertools
