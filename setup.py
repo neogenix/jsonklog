@@ -22,7 +22,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, "README.txt")).read()
 CHANGES = open(os.path.join(here, "CHANGES.txt")).read()
 
-requires = []
+requires = [
+        "anyjson",
+        ]
 
 setup(name="jsonklog",
     version="0.01",
@@ -38,7 +40,7 @@ setup(name="jsonklog",
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    namespace_packages=["jsonklog"],
+    namespace_packages=['jsonklog'],
     test_suite="",
     install_requires=requires,
     entry_points="""\
