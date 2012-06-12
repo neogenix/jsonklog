@@ -20,8 +20,32 @@ pip-log.txt
 .coverage
 .tox
 
-#Translations
+# Translations
 *.mo
 
-#Mr Developer
+# Mr Developer
 .mr.developer.cfg
+
+# Vi
+*.swp
+*.swo
+
+# Vim
+.*.sw[a-z]
+*.un~
+
+# OSX
+.DS_Store?
+Icon?
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
