@@ -13,3 +13,22 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
+
+
+import logging
+from jsonklog.formatter import json
+
+log = logging.getLogger('plane1')
+log.setLevel(logging.ERROR)
+handler = logging.StreamHandler()
+handler.setFormatter(json.JSONFormatter())
+log.addHandler(handler)
+
+def fly():
+    log.debug('All systems operational')
+    log.info('Airspeed 300 knots')
+    log.warn('Low on fuel')
+    log.error('No fuel. Trying to glide.')
+    log.critical('Glide attempt failed. About to crash.')
+
+fly()
