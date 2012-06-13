@@ -14,12 +14,6 @@
 #   limitations under the License.
 #
 
-# Originally borrowed from @Openstack/Nova (All licenses apply to below code as
-# per openstack.org + Apache) will be heavily modified before it makes it to
-# being released, currently just for testing as an example...
-#
-# https://github.com/openstack/nova/blob/master/nova/log.py - JSONFormatter
-# originally from there
 
 import logging
 import traceback

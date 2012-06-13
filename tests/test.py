@@ -15,13 +15,14 @@
 #
 
 
+import sys
 import logging
-from jsonklog.formatter import json
+from jsonklog.formatter import JSONFormatter
 
 log = logging.getLogger('plane1')
 log.setLevel(logging.ERROR)
-handler = logging.StreamHandler()
-handler.setFormatter(json.JSONFormatter())
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(JSONFormatter())
 log.addHandler(handler)
 
 def fly():
