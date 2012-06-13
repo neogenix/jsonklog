@@ -49,3 +49,6 @@ Icon?
 *.tmproj
 *.tmproject
 tmtags
+
+# Node
+node_modules

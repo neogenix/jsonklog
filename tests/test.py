@@ -1,5 +1,5 @@
 #
-#   Copyright [2011] [Patrick Ancillotti]
+#   Copyright [2012] [Patrick Ancillotti]
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ import sys
 import logging
 from jsonklog.formatter import JSONFormatter
 
-log = logging.getLogger('plane1')
-log.setLevel(logging.ERROR)
+log = logging.getLogger()
+log.setLevel(logging.DEBUG)
 handler = logging.StreamHandler(sys.stdout)
 handler.setFormatter(JSONFormatter())
 log.addHandler(handler)
