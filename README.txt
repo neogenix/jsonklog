@@ -19,7 +19,7 @@ the "extra" key within the dictionary
 
 For examples, please see example_formatter.py within the source tree at:
 
-        http://www.github.com/neogenix/jsonklog
+        * http://www.github.com/neogenix/jsonklog
 
 To format your JSON into "human readable whatsits" ensure your handler outputs
 to stdout, and then pipe through the node-json library ('json'), installed as per:
