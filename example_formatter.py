@@ -21,7 +21,7 @@ from jsonklog import formatter
 
 
 if __name__ == '__main__':
-    log = logging.getLogger()
+    log = logging.getLogger(__name__)
     log.setLevel(logging.DEBUG)
 
     handler = logging.StreamHandler(sys.stdout)
