@@ -1,6 +1,12 @@
 History
 =========
 
-0.01 (TBD)
+0.05 (2012-06-14)
 +++++++++++++++++
-* Initial Release
+* Initial release of JSONFormatter, and JSONFormatterSimple
+* Initial documentation added
+* Example code added
+
+0.01 (2012-06-10)
++++++++++++++++++
+* Initial release
