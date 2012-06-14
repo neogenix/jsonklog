@@ -67,3 +67,12 @@ class JSONFormatter(logging.Formatter):
             message['traceback'] = self.formatException(record.exc_info)
 
         return json.dumps(message)
+
+class JSONFormatterSimple(JSONFormatter):
+
+    def format(self, record):
+        message = {'message': record.getMessage(),
+                   'asctime': self.formatTime(record, self.datefmt),
+                   'levelname': record.levelname}
+
+        return json.dumps(message)
