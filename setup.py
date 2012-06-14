@@ -32,8 +32,13 @@ setup(name="jsonklog",
     description="JSON Logging Library with Python",
     long_description="\n" + README + "\n\n" + CHANGES,
     classifiers=[
+        "Development Status :: 4 - Beta",
+        "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: System :: Logging"
     ],
+    license="Apache 2.0",
     author="Patrick Ancillotti",
     author_email="patrick@eefy.net",
     url="",
