@@ -68,6 +68,7 @@ class JSONFormatter(logging.Formatter):
 
         return json.dumps(message)
 
+
 class JSONFormatterSimple(JSONFormatter):
 
     def format(self, record):
