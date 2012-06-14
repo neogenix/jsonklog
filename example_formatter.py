@@ -23,9 +23,15 @@ from jsonklog import formatter
 if __name__ == '__main__':
     log = logging.getLogger()
     log.setLevel(logging.DEBUG)
+
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(formatter.JSONFormatterSimple())
+    handler.setFormatter(formatter.JSONFormatter())
     log.addHandler(handler)
+
+    handler_simple = logging.StreamHandler(sys.stdout)
+    handler_simple.setFormatter(formatter.JSONFormatterSimple())
+    log.addHandler(handler_simple)
+
     log.debug('All systems operational')
     log.info('Airspeed 300 knots')
     log.warn('Low on fuel')
