@@ -75,4 +75,7 @@ class JSONFormatterSimple(JSONFormatter):
                    'asctime': self.formatTime(record, self.datefmt),
                    'levelname': record.levelname}
 
+        if hasattr(record, 'extra'):
+            message['extra'] = record.extra
+
         return json.dumps(message)
