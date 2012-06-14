@@ -37,3 +37,6 @@ if __name__ == '__main__':
     log.warn('Low on fuel')
     log.error('No fuel. Trying to glide.')
     log.critical('Glide attempt failed. About to crash.')
+
+    d = {'extra': {'some': '1', 'extras': '2', 'here': '3'}}
+    log.info('Extra records here', extra=d)
