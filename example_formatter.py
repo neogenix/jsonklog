@@ -26,9 +26,9 @@ if __name__ == '__main__':
 
     # Standard JSON Formatter
 
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(formatter.JSONFormatter())
-    log.addHandler(handler)
+    handler_full = logging.StreamHandler(sys.stdout)
+    handler_full.setFormatter(formatter.JSONFormatter())
+    log.addHandler(handler_full)
 
     # Simple JSON Formatter
 
