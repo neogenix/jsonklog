@@ -24,13 +24,19 @@ if __name__ == '__main__':
     log = logging.getLogger(__name__)
     log.setLevel(logging.DEBUG)
 
+    # Standard JSON Formatter
+
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(formatter.JSONFormatter())
     log.addHandler(handler)
 
+    # Simple JSON Formatter
+
     handler_simple = logging.StreamHandler(sys.stdout)
     handler_simple.setFormatter(formatter.JSONFormatterSimple())
     log.addHandler(handler_simple)
+
+    # Generating regular plain vanilla logs
 
     log.debug('All systems operational')
     log.info('Airspeed 300 knots')
@@ -38,5 +44,17 @@ if __name__ == '__main__':
     log.error('No fuel. Trying to glide.')
     log.critical('Glide attempt failed. About to crash.')
 
+    # Generating 'extra' nested dictionary logs
+
     d = {'extra': {'some': '1', 'extras': '2', 'here': '3'}}
     log.info('Extra records here', extra=d)
+
+    # Generating Exceptions
+
+    test_msg = 'This is %s'
+    test_data = 'exceptional'
+
+    try:
+        raise Exception('This is exceptional')
+    except Exception:
+        log.exception(test_msg, test_data)
