@@ -14,3 +14,30 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
+
+
+import logging
+import pymongo
+
+
+class MongoDBHandler(logging.Handler):
+
+    def __init__(self, host="localhost", db="logs", port="27017"):
+        logging.Handler.__init__(self)
+        self.connection = pymongo.Connection(host, port)
+        self.db = self.connection[db]
+
+    def emit(self, record):
+        self.db.posts.insert(record)
+
+
+class ElasticSearchHandler(logging.Handler):
+
+    def __init__(self, host="localhost", index="logs", port="9200"):
+        logging.Handler.__init__(self)
+        self.host = host
+        self.index = index
+        self.port = port
+
+    def emit(self, record):
+        print "pong"
