@@ -29,7 +29,7 @@ install_requires = [
         ]
 
 setup(name="jsonklog",
-    version="0.05",
+    version="0.10",
     description="JSON Logging Library with Python",
     long_description="\n" + README + "\n\n" + CHANGES,
     classifiers=[
