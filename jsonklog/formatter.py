@@ -26,8 +26,9 @@ import anyjson as json
 
 class JSONFormatter(logging.Formatter):
 
-    def __init__(self, fmt=None, datefmt=None):
+    def __init__(self, fmt=None, datefmt=None, dump_json=True):
         self.datefmt = datefmt
+        self.dump_json = dump_json
 
     def formatException(self, ei, strip_newlines=True):
         lines = traceback.format_exception(*ei)
@@ -39,44 +40,54 @@ class JSONFormatter(logging.Formatter):
         return lines
 
     def format(self, record):
-        message = {'message': record.getMessage(),
-                   'asctime': self.formatTime(record, self.datefmt),
-                   'name': record.name,
-                   'msg': record.msg,
-                   'args': record.args,
-                   'levelname': record.levelname,
-                   'levelno': record.levelno,
-                   'pathname': record.pathname,
-                   'filename': record.filename,
-                   'module': record.module,
-                   'lineno': record.lineno,
-                   'funcname': record.funcName,
-                   'created': record.created,
-                   'msecs': record.msecs,
-                   'relative_created': record.relativeCreated,
-                   'thread': record.thread,
-                   'thread_name': record.threadName,
-                   'process_name': record.processName,
-                   'process': record.process,
-                   'traceback': None}
+        msg = {'message': record.getMessage(),
+               'asctime': self.formatTime(record, self.datefmt),
+               'name': record.name,
+               'msg': record.msg,
+               'args': record.args,
+               'levelname': record.levelname,
+               'levelno': record.levelno,
+               'pathname': record.pathname,
+               'filename': record.filename,
+               'module': record.module,
+               'lineno': record.lineno,
+               'funcname': record.funcName,
+               'created': record.created,
+               'msecs': record.msecs,
+               'relative_created': record.relativeCreated,
+               'thread': record.thread,
+               'thread_name': record.threadName,
+               'process_name': record.processName,
+               'process': record.process,
+               'traceback': None}
 
         if hasattr(record, 'extra'):
-            message['extra'] = record.extra
+            msg['extra'] = record.extra
 
         if record.exc_info:
-            message['traceback'] = self.formatException(record.exc_info)
+            msg['traceback'] = self.formatException(record.exc_info)
 
-        return json.dumps(message)
+        if not self.dump_json:
+            return msg
+
+        return json.dumps(msg)
 
 
 class JSONFormatterSimple(JSONFormatter):
 
     def format(self, record):
-        message = {'message': record.getMessage(),
-                   'asctime': self.formatTime(record, self.datefmt),
-                   'levelname': record.levelname}
+        msg = {'message': record.getMessage(),
+               'asctime': self.formatTime(record, self.datefmt),
+               'levelname': record.levelname,
+               'traceback': None}
 
         if hasattr(record, 'extra'):
-            message['extra'] = record.extra
+            msg['extra'] = record.extra
 
-        return json.dumps(message)
+        if record.exc_info:
+            msg['traceback'] = self.formatException(record.exc_info)
+
+        if not self.dump_json:
+            return msg
+
+        return json.dumps(msg)
