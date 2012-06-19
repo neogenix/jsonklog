@@ -26,7 +26,7 @@ import anyjson as json
 class MongoDBHandler(logging.Handler):
 
     def __init__(self, host="localhost", db="logs", port=27017,
-            collection="logs"):
+                 collection="logs"):
 
         logging.Handler.__init__(self)
         self.connection = pymongo.Connection(host, port)
@@ -47,7 +47,7 @@ class MongoDBHandler(logging.Handler):
 class ElasticSearchHandler(logging.Handler):
 
     def __init__(self, host="localhost", index="logs", port=9200,
-            doc_type="logs"):
+                 doc_type="logs"):
 
         logging.Handler.__init__(self)
         self.url = 'http://%s:%s/%s/%s' % (host, port, index, doc_type)

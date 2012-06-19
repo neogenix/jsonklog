@@ -24,32 +24,34 @@ README = open(os.path.join(here, "README.rst")).read()
 CHANGES = open(os.path.join(here, "CHANGES.rst")).read()
 
 install_requires = [
-        "anyjson",
-        "pymongo",
-        "requests"
-        ]
+    "anyjson",
+    "pymongo",
+    "requests"
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Logging"
+]
 
 setup(name="jsonklog",
-    version="0.10",
-    description="JSON Logging Library with Python",
-    long_description="\n" + README + "\n\n" + CHANGES,
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "License :: OSI Approved :: Apache Software License",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        "Topic :: System :: Logging"
-    ],
-    license="Apache 2.0",
-    author="Patrick Ancillotti",
-    author_email="patrick@eefy.net",
-    url="http://www.github.com/neogenix/jsonklog",
-    keywords="json logging",
-    packages=find_packages(),
-    include_package_data=True,
-    zip_safe=False,
-    namespace_packages=['jsonklog'],
-    test_suite="",
-    install_requires=install_requires,
-    entry_points=""" """
-)
+      version="0.10.0",
+      description="JSON Logging Library with Python",
+      long_description="\n" + README + "\n\n" + CHANGES,
+      classifiers=classifiers,
+      license="Apache 2.0",
+      author="Patrick Ancillotti",
+      author_email="patrick@eefy.net",
+      url="http://www.github.com/neogenix/jsonklog",
+      keywords="json logging",
+      packages=find_packages(),
+      include_package_data=True,
+      zip_safe=False,
+      namespace_packages=['jsonklog'],
+      test_suite="",
+      install_requires=install_requires,
+      entry_points=""" """
+      )
