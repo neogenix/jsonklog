@@ -1,7 +1,7 @@
 History
 =========
 
-0.10 (2012-06-15)
+0.10 (2012-06-19)
 +++++++++++++++++
 * Initial release of MongoDBHandler, and ElasticSearchHandler
 * Initial documentation around Handlers.
