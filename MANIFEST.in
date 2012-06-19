@@ -1,4 +1,4 @@
 include LICENSE
 include AUTHORS
-include CHANGES.txt
-include README.txt
+include CHANGES.rst
+include README.rst
