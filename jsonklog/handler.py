@@ -18,33 +18,37 @@
 
 import logging
 import pymongo
+import requests
 
 import anyjson as json
 
 
 class MongoDBHandler(logging.Handler):
 
-    def __init__(self, host="localhost", db="logs", port=27017):
+    def __init__(self, host="localhost", db="logs", port=27017, collection="logs"):
         logging.Handler.__init__(self)
         self.connection = pymongo.Connection(host, port)
         self.db = self.connection[db]
+        self.collection = self.db[collection]
 
     def emit(self, record):
+
+        """ pymongo expects a dict """
         msg = self.format(record)
 
         if not isinstance(msg, dict):
             msg = json.loads(msg)
 
-        self.db.posts.insert(msg)
+        self.collection.insert(msg)
 
 
 class ElasticSearchHandler(logging.Handler):
 
-    def __init__(self, host="localhost", index="logs", port=9200):
+    def __init__(self, host="localhost", index="logs", port=9200, doc_type="logs"):
         logging.Handler.__init__(self)
-        self.host = host
-        self.index = index
-        self.port = port
+        self.url = 'http://%s:%s/%s/%s' % (host, port, index, doc_type)
 
     def emit(self, record):
-        print "pong"
+        msg = self.format(record)
+
+        requests.post(self.url, data=msg)

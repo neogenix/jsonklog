@@ -26,6 +26,7 @@ CHANGES = open(os.path.join(here, "CHANGES.txt")).read()
 install_requires = [
         "anyjson",
         "pymongo"
+        "requests"
         ]
 
 setup(name="jsonklog",
