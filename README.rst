@@ -30,8 +30,8 @@ Handlers :
 Currently there are two handlers, which require JSONFormatter, or JSONFormatterSimple
 to have been used :
 
-        * MongoDBHandler
-        * ElasticSearchHandler
+    * MongoDBHandler
+    * ElasticSearchHandler
 
 Each of the handlers can process the standard JSON messages from the included JSON
 formatting libraries, and can have different destinations specified as follows:
@@ -41,24 +41,24 @@ MongoDBHandler :
 
 This handler speaks MongoDB (using 'pymongo'), and can take the following arguments:
 
-        * host - The destination host / ip of the MongoDB server
-        * port - The destination port of the MongoDB server
-        * db - The destination database to send messages to
-        * collection - The destination collection to send messages to
+    * host - The destination host / ip of the MongoDB server
+    * port - The destination port of the MongoDB server
+    * db - The destination database to send messages to
+    * collection - The destination collection to send messages to
 
-    * for more on MongoDB see the following URL: http://www.mongodb.org/
+* for more on MongoDB see the following URL: http://www.mongodb.org/
 
 ElasticSearchHandler :
 ----------------------
 
 This handler speaks ElasticSearch (using 'requests'), and can take the following arguments:
 
-        * host - The destination host / ip of the ElasticSearch server
-        * port - The destination port of the ElasticSearch server
-        * index - The destination index to send messages to
-        * doc_type - The destination doc_type to send messages to
+    * host - The destination host / ip of the ElasticSearch server
+    * port - The destination port of the ElasticSearch server
+    * index - The destination index to send messages to
+    * doc_type - The destination doc_type to send messages to
 
-    * for more on ElasticSearch see the following URL: http://www.elasticsearch.org/
+* for more on ElasticSearch see the following URL: http://www.elasticsearch.org/
 
 Note :
 ++++++
@@ -66,6 +66,6 @@ Note :
 To format your JSON into "human readable whatsits" ensure your handler outputs
 to stdout, and then pipe through the node-json library ('json'), installed as per:
 
-        * npm install -g json
+    * npm install -g json
 
 This is not a requirement, but rather what I'm using to do my testing ;)
