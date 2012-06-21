@@ -16,7 +16,8 @@
 #
 
 import logging
-from jsonklog import handler
+
+from jsonklog.handlers import ElasticSearchHandler
 from jsonklog import formatter
 
 
@@ -26,13 +27,13 @@ if __name__ == '__main__':
 
     # Standard JSON Formatter
 
-    handler_full = handler.ElasticSearchHandler()
+    handler_full = ElasticSearchHandler()
     handler_full.setFormatter(formatter.JSONFormatter())
     log.addHandler(handler_full)
 
     # Simple JSON Formatter
 
-    handler_simple = handler.ElasticSearchHandler()
+    handler_simple = ElasticSearchHandler()
     handler_simple.setFormatter(formatter.JSONFormatterSimple())
     log.addHandler(handler_simple)
 

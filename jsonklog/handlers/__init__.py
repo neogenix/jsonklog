@@ -15,7 +15,7 @@
 #   limitations under the License.
 #
 
-from . import MongoDBHandler
-from . import ElasticSearchHandler
+from jsonklog.handlers.elasticsearchhandler import ElasticSearchHandler
+from jsonklog.handlers.mongodbhandler import MongoDBHandler
 
 __all__ = ['MongoDBHandler', 'ElasticSearchHandler']
