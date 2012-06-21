@@ -17,8 +17,9 @@
 
 import logging
 
-from jsonklog.handlers import MongoDBHandler
-from jsonklog import formatter
+from jsonklog.handlers import ElasticSearchHandler
+from jsonklog.formatters import JSONFormatter
+from jsonklog.formatters import JSONFormatterSimple
 
 
 if __name__ == '__main__':
@@ -27,14 +28,14 @@ if __name__ == '__main__':
 
     # Standard JSON Formatter
 
-    handler_full = MongoDBHandler()
-    handler_full.setFormatter(formatter.JSONFormatter())
+    handler_full = ElasticSearchHandler()
+    handler_full.setFormatter(JSONFormatter())
     log.addHandler(handler_full)
 
     # Simple JSON Formatter
 
-    handler_simple = MongoDBHandler()
-    handler_simple.setFormatter(formatter.JSONFormatterSimple())
+    handler_simple = ElasticSearchHandler()
+    handler_simple.setFormatter(JSONFormatterSimple())
     log.addHandler(handler_simple)
 
     # Generating regular plain vanilla logs
