@@ -15,21 +15,17 @@
 #   limitations under the License.
 #
 
-import logging
-import requests
-
-from jsonklog.handlers.basehandler import RequireJSONFormatter
+from jsonklog.formatters import JSONFormatter
 
 
-class ElasticSearchHandler(logging.Handler, RequireJSONFormatter):
+class RequireJSONFormatter(object):
 
-    def __init__(self, host="localhost", index="logs", port=9200,
-                 doc_type="logs"):
+    """Mixin class to require a Handler be configured with a JSONFormmater """
 
-        logging.Handler.__init__(self)
-        self.url = 'http://%s:%s/%s/%s' % (host, port, index, doc_type)
+    def setFormatter(self, fmt):
 
-    def emit(self, record):
-        msg = self.format(record)
+        if not isinstance(fmt, JSONFormatter):
+            raise TypeError("%s requires a JSONFormatter" %
+                            self.__class__.__name__)
 
-        requests.post(self.url, data=msg)
+        self.formatter = fmt
