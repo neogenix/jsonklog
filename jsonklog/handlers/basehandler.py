@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #   Copyright [2012] [Patrick Ancillotti]
+#   Copyright [2012] [Jason Kölker]
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -27,5 +28,4 @@ class RequireJSONFormatter(object):
         if not isinstance(fmt, JSONFormatter):
             raise TypeError("%s requires a JSONFormatter" %
                             self.__class__.__name__)
-
         self.formatter = fmt
