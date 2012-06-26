@@ -21,11 +21,12 @@ from jsonklog.formatters import JSONFormatter
 
 class RequireJSONFormatter(object):
 
-    """Mixin class to require a Handler be configured with a JSONFormmater """
+    """ Mixin class to require a Handler be configured with a JSONFormmater """
 
     def setFormatter(self, fmt):
 
         if not isinstance(fmt, JSONFormatter):
             raise TypeError("%s requires a JSONFormatter" %
                             self.__class__.__name__)
+
         self.formatter = fmt
