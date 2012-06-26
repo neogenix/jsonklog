@@ -15,9 +15,13 @@
 #   limitations under the License.
 #
 
+#   This script shows what the JSONFormatter and children can do
+
 import sys
 import logging
-from jsonklog import formatter
+
+from jsonklog.formatters import JSONFormatter
+from jsonklog.formatters import JSONFormatterSimple
 
 
 if __name__ == '__main__':
@@ -27,13 +31,13 @@ if __name__ == '__main__':
     # Standard JSON Formatter
 
     handler_full = logging.StreamHandler(sys.stdout)
-    handler_full.setFormatter(formatter.JSONFormatter())
+    handler_full.setFormatter(JSONFormatter())
     log.addHandler(handler_full)
 
     # Simple JSON Formatter
 
     handler_simple = logging.StreamHandler(sys.stdout)
-    handler_simple.setFormatter(formatter.JSONFormatterSimple())
+    handler_simple.setFormatter(JSONFormatterSimple())
     log.addHandler(handler_simple)
 
     # Generating regular plain vanilla logs

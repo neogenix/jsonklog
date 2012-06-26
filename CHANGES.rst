@@ -1,8 +1,10 @@
 History
 =========
 
-0.15.0 (2012-06-21)
+0.15.0 (2012-06-25)
 +++++++++++++++++++
+* Added additional examples, and moved them to /examples
+* Added more documentation
 * Reformatted handlers to make them easier to work with
 * Made handlers depend on json formatters
 

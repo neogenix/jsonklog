@@ -15,36 +15,13 @@
 #   limitations under the License.
 #
 
-
 import logging
-import pymongo
 import requests
 
-import anyjson as json
+from jsonklog.handlers.basehandler import RequireJSONFormatter
 
 
-class MongoDBHandler(logging.Handler):
-
-    def __init__(self, host="localhost", db="logs", port=27017,
-                 collection="logs"):
-
-        logging.Handler.__init__(self)
-        self.connection = pymongo.Connection(host, port)
-        self.db = self.connection[db]
-        self.collection = self.db[collection]
-
-    def emit(self, record):
-
-        """ pymongo expects a dict """
-        msg = self.format(record)
-
-        if not isinstance(msg, dict):
-            msg = json.loads(msg)
-
-        self.collection.insert(msg)
-
-
-class ElasticSearchHandler(logging.Handler):
+class ElasticSearchHandler(RequireJSONFormatter):
 
     def __init__(self, host="localhost", index="logs", port=9200,
                  doc_type="logs"):
