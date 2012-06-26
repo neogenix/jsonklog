@@ -15,9 +15,12 @@
 #   limitations under the License.
 #
 
+#   This script generates a failure if you try use a formatter that's
+#   not JSONFormatter, or one of it's children
+
 import logging
-from jsonklog import handler
-from jsonklog import formatter
+
+from jsonklog.handlers import ElasticSearchHandler
 
 
 if __name__ == '__main__':
@@ -26,14 +29,14 @@ if __name__ == '__main__':
 
     # Standard JSON Formatter
 
-    handler_full = handler.MongoDBHandler()
-    handler_full.setFormatter(formatter.JSONFormatter())
+    handler_full = ElasticSearchHandler()
+    handler_full.setFormatter('%(asctime)-15s %(clientip)s %(user)-8s %(message)s')
     log.addHandler(handler_full)
 
     # Simple JSON Formatter
 
-    handler_simple = handler.MongoDBHandler()
-    handler_simple.setFormatter(formatter.JSONFormatterSimple())
+    handler_simple = ElasticSearchHandler()
+    handler_simple.setFormatter('%(asctime)-15s %(clientip)s %(user)-8s %(message)s')
     log.addHandler(handler_simple)
 
     # Generating regular plain vanilla logs
@@ -43,18 +46,3 @@ if __name__ == '__main__':
     log.warn('Low on fuel')
     log.error('No fuel. Trying to glide.')
     log.critical('Glide attempt failed. About to crash.')
-
-    # Generating 'extra' nested dictionary logs
-
-    d = {'extra': {'some': '1', 'extras': '2', 'here': '3'}}
-    log.info('Extra records here', extra=d)
-
-    # Generating Exceptions
-
-    test_msg = 'This is %s'
-    test_data = 'exceptional'
-
-    try:
-        raise Exception('This is exceptional')
-    except Exception:
-        log.exception(test_msg, test_data)

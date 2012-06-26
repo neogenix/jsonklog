@@ -27,7 +27,7 @@ import unittest
 
 import anyjson as json
 
-from jsonklog import formatter
+from jsonklog.formatters import JSONFormatter
 
 
 class JSONFormatterTestCase(unittest.TestCase):
@@ -36,7 +36,7 @@ class JSONFormatterTestCase(unittest.TestCase):
         self.stream = StringIO.StringIO()
 
         handler = logging.StreamHandler(self.stream)
-        handler.setFormatter(formatter.JSONFormatter())
+        handler.setFormatter(JSONFormatter())
 
         self.log.addHandler(handler)
         self.log.setLevel(logging.DEBUG)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     log = logging.getLogger()
     log.setLevel(logging.DEBUG)
     handler = logging.StreamHandler()
-    handler.setFormatter(formatter.JSONFormatter())
+    handler.setFormatter(JSONFormatter())
     log.addHandler(handler)
     log.debug('All systems operational')
     log.info('Airspeed 300 knots')
