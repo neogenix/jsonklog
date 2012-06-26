@@ -1,6 +1,12 @@
 History
 =========
 
+0.15.0 (2012-06-25)
++++++++++++++++++++
+* Reformatted handlers to make them easier to work with
+* Added additional examples, and moved them to /examples
+* Added more documentation
+
 0.10.0 (2012-06-19)
 +++++++++++++++++++
 * Initial release of MongoDBHandler, and ElasticSearchHandler

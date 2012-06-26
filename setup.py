@@ -38,7 +38,7 @@ classifiers = [
 ]
 
 setup(name="jsonklog",
-      version="0.10.0",
+      version="0.15.0",
       description="JSON Logging Library with Python",
       long_description="\n" + README + "\n\n" + CHANGES,
       classifiers=classifiers,
