@@ -15,11 +15,12 @@
 #   limitations under the License.
 #
 
+#   This script generates a failure if you try use a formatter that's
+#   not JSONFormatter, or one of it's children
+
 import logging
 
 from jsonklog.handlers import ElasticSearchHandler
-from jsonklog.formatters import JSONFormatter
-from jsonklog.formatters import JSONFormatterSimple
 
 
 if __name__ == '__main__':

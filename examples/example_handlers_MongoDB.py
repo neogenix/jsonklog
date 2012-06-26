@@ -15,6 +15,8 @@
 #   limitations under the License.
 #
 
+#   This shows what the MongoDBHandler can do!
+
 import logging
 
 from jsonklog.handlers import MongoDBHandler

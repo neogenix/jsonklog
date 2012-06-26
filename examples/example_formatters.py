@@ -15,6 +15,8 @@
 #   limitations under the License.
 #
 
+#   This script shows what the JSONFormatter and children can do
+
 import sys
 import logging
 

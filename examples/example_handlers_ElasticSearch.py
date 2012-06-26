@@ -15,6 +15,8 @@
 #   limitations under the License.
 #
 
+#   This shows what the ElasticSearchHandler can do!
+
 import logging
 
 from jsonklog.handlers import ElasticSearchHandler
