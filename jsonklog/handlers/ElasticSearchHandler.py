@@ -21,7 +21,7 @@ import requests
 from jsonklog.handlers.basehandler import RequireJSONFormatter
 
 
-class ElasticSearchHandler(logging.Handler, RequireJSONFormatter):
+class ElasticSearchHandler(RequireJSONFormatter):
 
     def __init__(self, host="localhost", index="logs", port=9200,
                  doc_type="logs"):

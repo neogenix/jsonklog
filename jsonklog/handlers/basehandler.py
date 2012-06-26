@@ -16,10 +16,12 @@
 #   limitations under the License.
 #
 
+import logging
+
 from jsonklog.formatters import JSONFormatter
 
 
-class RequireJSONFormatter(object):
+class RequireJSONFormatter(logging.Handler):
 
     """ Mixin class to require a Handler be configured with a JSONFormmater """
 

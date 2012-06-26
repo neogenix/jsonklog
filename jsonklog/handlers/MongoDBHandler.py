@@ -22,7 +22,7 @@ import anyjson as json
 from jsonklog.handlers.basehandler import RequireJSONFormatter
 
 
-class MongoDBHandler(logging.Handler, RequireJSONFormatter):
+class MongoDBHandler(RequireJSONFormatter):
 
     def __init__(self, host="localhost", db="logs", port=27017,
                  collection="logs"):
