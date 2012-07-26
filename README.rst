@@ -22,7 +22,7 @@ the "extra" key within the dictionary
 
 For examples, please see example_formatter.py within the source tree at:
 
-        * http://www.github.com/neogenix/jsonklog/examples
+        * https://github.com/neogenix/jsonklog/tree/master/examples
 
 Handlers :
 ++++++++++
