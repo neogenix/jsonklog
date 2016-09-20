@@ -28,7 +28,7 @@ class MongoDBHandler(RequireJSONFormatter):
                  collection="logs"):
 
         logging.Handler.__init__(self)
-        self.connection = pymongo.Connection(host, port)
+        self.connection = pymongo.MongoClient(host, port)
         self.db = self.connection[db]
         self.collection = self.db[collection]
 
