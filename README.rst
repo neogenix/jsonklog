@@ -1,5 +1,5 @@
-Project JSONkLog
-================
+Project JSONkLog (Not actively maintained right now)
+====================================================
 
 The goal of this library is to provide a simple formatter, and handlers for
 standard python logging libraries to deal with JSON output in a sort of
